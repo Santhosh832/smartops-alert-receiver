@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: alertmanager-prometheus-kube-prometheus-alertmanager
+  namespace: kube-system
+  labels:
+    alertmanager: "main"  # ✅ Correct placement
+    app: prometheus
+    component: alertmanager
+    release: prometheus
+type: Opaque
+stringData:
+  alertmanager.yaml: |
+    global:
+      smtp_smarthost: 'smtp.gmail.com:587'
+      smtp_from: 'santhanam832@gmail.com'
+      smtp_auth_username: 'santhanam832@gmail.com'
+      smtp_auth_password: 'lcht roqo klyt jiel'
+
+    route:
+      receiver: email-me
+
+    receivers:
+      - name: email-me
+        email_configs:
+          - to: 'santhanam832@gmail.com'
+

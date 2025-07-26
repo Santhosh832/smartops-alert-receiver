@@ -1,0 +1,7 @@
+route:
+  receiver: flask-alert
+
+receivers:
+  - name: flask-alert
+    webhook_configs:
+      - url: 'http://<YOUR_FLASK_IP>:5000/alert'
